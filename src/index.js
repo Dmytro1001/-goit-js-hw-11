@@ -72,18 +72,18 @@ async function onSearch(evt) {
   }
 }
 
-// async function onClickLoadMore() {
-//   currentPage += 1;
-//   const response = await fetchImages(searchQuery, currentPage);
-//   cardImages(response.hits);
-//   lightbox.refresh();
-//   currentHits += response.hits.length;
+async function onClickLoadMore() {
+  currentPage += 1;
+  const response = await fetchImages(searchQuery, currentPage);
+  cardImages(response.hits);
+  lightbox.refresh();
+  currentHits += response.hits.length;
 
-//   if (currentHits === response.totalHits) {
-//     loadMoreBtn.classList.add('is-hidden');
-//     endCollection.remove('is-hidden');
-//   }
-// }
+  if (currentHits === response.totalHits) {
+    loadMoreBtn.classList.add('is-hidden');
+    endCollection.remove('is-hidden');
+  }
+}
 
 function cardImages(obj) {
   const markup = obj.map(obj => `<a class="gallery__item" href="${obj.largeImageURL}">
@@ -109,4 +109,4 @@ function cardImages(obj) {
   gallery.insertAdjacentHTML('beforeend', markup);
 }
 
-console.log('Test')
+// console.log('Test')
